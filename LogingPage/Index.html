@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form class="register-form" action="/User_created" method="post">
+        <input type="text" name ="name" placeholder="name"/>
+        <input type="password" name ="password" placeholder="password"/>
+        <input type="text" name ="email" placeholder="email"/>
+        <button onclick="UserCreated()">create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form" action="/submit" method="post">
+        <input type="text" name="username" placeholder="username"/>
+        <input type="password" name="password" placeholder="password"/>
+        <button >login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+      <script>
+        $('.message a').click(function(){
+          $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+       });
+       const UserCreated = () =>{
+        const newDiv = document.createElement('div');
+         newDiv.textContent = 'New Div Created';
+         document.body.appendChild(newDiv);
+       }
+      </script>
+</body>
+</html>
